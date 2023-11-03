@@ -4,11 +4,11 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/${_FIREBASE_PROJECT_ID}/firebase', './dockerfiles/firebase']
 // npm install (Install all libraries that our project needs)
-  - name: 'node:20.9'
+  - name: 'node:16.10'
     entrypoint: 'npm'
     args: ['install']
 //npm run build (for build a project before update a firebase page)  
-  - name: 'node:20.9'
+  - name: 'node:16.10'
     entrypoint: 'npm'
     args: ['run', 'build']
 //Authenticate to Firebase with token
