@@ -1,0 +1,44 @@
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    .signinTitle {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: orange;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+      }  
+    
+        
+    button {
+        margin: 5px 0;
+
+        &[mat-button] {
+            width: auto;
+        }
+    }
+
+    button,
+    mat-form-field {
+        width: -webkit-fill-available;
+    }
+
+    .aligned-to-right {
+        text-align: right;
+        width: 100%;
+    }
+}
