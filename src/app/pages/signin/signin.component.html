@@ -1,18 +1,44 @@
 <main>
-    <form>
+    <div class="theme-buttons">
+        <button class="orangeTheme" (click)="orangeThemeEvent()">.</button>
+        <button class="blackTheme" (click)="blackThemeEvent()">.</button>
+        <button class="greenTheme" (click)="greenThemeEvent()">.</button>
+    </div>
+    <form [formGroup]="form"
+        [ngClass]="{'orange-background-theme': setOrangeTheme, 'black-background-theme': setBlackTheme , 'green-background-theme': setGreenTheme}">
         <h2 class="signinTitle">Enter with your account</h2>
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Ex. pat@example.com">
+            <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+            <mat-error *ngIf="form.get('email')!.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('email')!.hasError('email')">
+                Email is <strong>INVALID</strong>
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder="Password">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="form.get('password')!.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
         <div class="aligned-to-right">
-            <button  mat-button>Recover password</button>
+            <button mat-button [ngStyle]="{'font-weight': form.get('email')!.valid ? 'bold':'normal' }" theme-text-color test-id="recover-password-button" [disabled]="!form.get('email')!.valid">
+                Recover password
+            </button>
         </div>
-        <button mat-fab extended color="primary">LOGIN</button>
-        <button mat-fab extended>Register</button>
+        <button mat-fab 
+                extended 
+                [ngStyle]="{'color': form.valid ? 'white': 'silver', 'font-weight': form.valid ? 'bold':'normal' }" 
+                class="theme-background-color-1" 
+                test-id="login-button" 
+                [disabled]="!form.valid">
+            LOGIN
+        </button>
+        <button mat-fab extended theme-text-color class="white-background">
+            Register
+        </button>
     </form>
 </main>

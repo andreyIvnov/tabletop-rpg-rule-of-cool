@@ -1,44 +1,116 @@
-
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-}
 
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    .theme-buttons{
+        display:inline-block;
+    }
 
+    .orangeTheme {
+        background-color: orange;
+    }
 
-    .signinTitle {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        color: orange;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: white;
-      }  
-    
-        
-    button {
-        margin: 5px 0;
+    .blackTheme {
+        background-color: black;
+    }
 
-        &[mat-button] {
-            width: auto;
+    .greenTheme {
+        background-color: green;
+    }
+
+    .orange-background-theme {
+        .theme-background-color-1 {
+            background-color: orange;
+        }
+
+        .signinTitle {
+            color: orange;
+        }
+
+        button {
+            &[theme-text-color] {
+                color: orange;
+            }
         }
     }
 
-    button,
-    mat-form-field {
-        width: -webkit-fill-available;
+    .black-background-theme {
+        .theme-background-color-1 {
+            background-color: black;
+        }
+
+        .signinTitle {
+            color: black;
+        }
+
+        button {
+            &[theme-text-color] {
+                color: black;
+            }
+        }
     }
 
-    .aligned-to-right {
-        text-align: right;
-        width: 100%;
+    .green-background-theme {
+        .theme-background-color-1 {
+            background-color: green;
+        }
+
+        .signinTitle {
+            color: green;
+        }
+
+        button {
+            &[theme-text-color] {
+                color: green;
+            }
+
+        }
     }
+
+    form {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+
+        .white-background {
+            background-color: aliceblue;
+        }
+
+        .signinTitle {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+        }
+
+
+
+        button {
+            margin: 5px 0;
+            
+
+            &[mat-button] {
+                width: auto;
+            }
+        }
+
+        button,
+        mat-form-field {
+            width: -webkit-fill-available;
+        }
+
+        .aligned-to-right {
+            text-align: right;
+            width: 100%;
+        }
+    }
+
+
 }
